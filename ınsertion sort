@@ -1,0 +1,40 @@
+# Insertion-sort
+nsertion Sort (Eklemeli Sıralama) Bubble Sort algoritmasının iyileştirilmiş biçimidir. Sıralanacak dizinin ilk elemanını yerine bırakarak, sonraki elemanları (alt diziyi) sırayla alarak sıraya uygun olan yere sokar. Instertion Sort algoritması ile dizinin elemanları küçükten büyüğe sıralanır.#include<stdio.h>
+
+void insertionSort(int arr[], int size)
+{
+	int i,j,element;
+	
+	//Array içinde tek yönlü giden döngü
+	for(i = 1; i<size; i++)
+	{
+		element = arr[i];
+		j = i - 1;
+		
+		//Array içinde gezmemizi sağlayan döngü.
+		//Array içinde önceki elemanlara bakarak yer değiştiren döngüdür.
+		while(j >= 0 && arr[j] > element)
+		{
+			arr[j+1] = arr[j];
+			j--;
+		}
+		arr[j+1] = element;
+	}
+}
+
+
+int main()
+{	 
+	int arr[] = {12,11,13,2,4,1};
+	int n = sizeof(arr) / sizeof(arr[0]);
+
+	insertionSort(arr, n);
+	
+	//Ekrana yazdır.
+	for(int i=0; i<n; i++)
+	{
+		printf("%d, ", arr[i]);
+	}
+	
+	return 0;
+}
